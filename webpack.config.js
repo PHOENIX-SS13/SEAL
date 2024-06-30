@@ -44,7 +44,9 @@ module.exports = (env, argv) => {
             if (instance) {
               return;
             }
-            instance = spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ["run", "webpackRun"]);
+            instance = spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ["run", "webpackRun"], {
+				shell: true,
+			});
             instance.stdout.on("data", function(data) {
               console.log(data.toString());
             });
@@ -66,7 +68,7 @@ module.exports = (env, argv) => {
     },
     externals: [
       nodeExternals({
-        whitelist: ["webpack/hot/dev-server", "webpack/hot/poll?100"]
+        allowlist: ["webpack/hot/dev-server", "webpack/hot/poll?100"]
       })
     ]
   };
