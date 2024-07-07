@@ -11,7 +11,14 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+  <StackPanel Orientation="Horizontal" Spacing="10">
+    <StackPanel Spacing="10">
+      <TextBlock Margin="0, 0, 200, 0" Text="{Binding Greeting}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30"/>
+      <Label>Source File</Label>
+      <TextBox></TextBox>
+      <TextBlock Text="{Binding pickedfile}"/>
+      <Button Command="{Binding FindFile}" Content="Pick File"/>
+    </StackPanel>
+  </StackPanel>
+  
 </Window>
